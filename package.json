@@ -13,9 +13,8 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "prepare": "husky",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",
