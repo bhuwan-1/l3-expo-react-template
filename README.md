@@ -271,19 +271,6 @@ This script will:
 - Keep the basic component structure intact
 - Allow you to start building your own content immediately
 
-#### Reset Project (Optional)
-
-If you want to start fresh while keeping the template structure:
-
-```bash
-yarn reset-project
-```
-
-This script will:
-
-- Move existing `app/`, `components/`, `hooks/`, `constants/`, and `scripts/` directories to `app-example/`
-- Create a new blank `app/` directory with basic files
-- Allow you to reference the example code later
 
 ## 📝 Key Configuration Files
 
