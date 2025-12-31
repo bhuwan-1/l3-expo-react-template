@@ -1,5 +1,5 @@
-import { Text } from 'react-native';
+import TestScreen from '@template/screens/test/test-screen';
 
 export default function TestPage() {
-  return <Text>This is the test page</Text>;
+  return <TestScreen />;
 }
