@@ -256,6 +256,21 @@ yarn test
 yarn test:watch
 ```
 
+#### Clear Example Content (Recommended)
+
+After cloning the template, you can quickly remove the example content from the home and test pages:
+
+```bash
+yarn reset-project
+```
+
+This script will:
+
+- Clear the example content from `src/components/home/home.tsx`
+- Clear the example content from `src/components/test/test.tsx`
+- Keep the basic component structure intact
+- Allow you to start building your own content immediately
+
 #### Reset Project (Optional)
 
 If you want to start fresh while keeping the template structure:

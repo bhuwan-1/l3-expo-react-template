@@ -171,8 +171,33 @@ export default function Home() {
             <Text className="text-xs text-gray-700 dark:text-gray-300 font-mono mb-2">
               yarn lint # Run linter
             </Text>
-            <Text className="text-xs text-gray-700 dark:text-gray-300 font-mono">
+            <Text className="text-xs text-gray-700 dark:text-gray-300 font-mono mb-2">
               yarn test # Run tests
+            </Text>
+            <Text className="text-xs text-gray-700 dark:text-gray-300 font-mono">
+              yarn reset-project # Remove example content
+            </Text>
+          </View>
+        </View>
+
+        {/* Clear Examples Notice */}
+        <View className="mb-6">
+          <View className="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg border border-orange-200 dark:border-orange-800">
+            <Text className="text-lg font-bold text-orange-800 dark:text-orange-200 mb-2">
+              🧹 Ready to Start Building?
+            </Text>
+            <Text className="text-sm text-orange-700 dark:text-orange-300 mb-3">
+              Remove the example content from the home and test pages to start
+              fresh:
+            </Text>
+            <View className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg">
+              <Text className="text-xs text-orange-800 dark:text-orange-200 font-mono">
+                yarn clear-examples
+              </Text>
+            </View>
+            <Text className="text-xs text-orange-600 dark:text-orange-400 mt-2">
+              This will clear the example content while keeping the basic
+              component structure.
             </Text>
           </View>
         </View>
