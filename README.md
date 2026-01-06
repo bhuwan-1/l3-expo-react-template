@@ -67,8 +67,6 @@ l3-expo-react-template/
 │   │   ├── fr.ts                 # French translations
 │   │   └── it.ts                 # Italian translations
 │   │
-│   ├── lib/                      # Third-party library configurations
-│   │
 │   ├── models/                   # TypeScript type definitions and models
 │   │   ├── api.model.ts          # API-related types
 │   │   ├── auth.model.ts         # Authentication types
