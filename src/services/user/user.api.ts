@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { queryKeys } from '@template/constants/query-keys.constant';
 import {
   CreateUserPayload,
   UpdateUserPayload,
@@ -9,7 +10,7 @@ import api from '@template/services/api/api';
 const userApi = {
   useUsersQuery: () => {
     return useQuery({
-      queryKey: ['users'],
+      queryKey: queryKeys.users.lists(),
       queryFn: async () => {
         const response = await api.get<User[]>('/users');
         return response.data;
@@ -19,7 +20,7 @@ const userApi = {
 
   useUserQuery: (userId: number) => {
     return useQuery({
-      queryKey: ['users', userId],
+      queryKey: queryKeys.users.detail(userId),
       queryFn: async () => {
         const response = await api.get<User>(`/users/${userId}`);
         return response.data;
@@ -29,17 +30,21 @@ const userApi = {
   },
 
   useCreateUserMutation: () => {
-    const queryClient = useQueryClient();
-
     return useMutation({
       mutationFn: async (data: CreateUserPayload) => {
         const response = await api.post<User>('/users', data);
         return response.data;
       },
       onSuccess: () => {
-        // Invalidate and refetch users list
-        queryClient.invalidateQueries({ queryKey: ['users'] });
+        // can show a success message
       },
+      onError: (error) => {
+        // can show a error message
+      },
+      onSettled: () => {
+        // can invalidate the queries if you prefer not to use the meta option
+      },
+      meta: { invalidateQueries: queryKeys.users.all },
     });
   },
 
@@ -53,9 +58,8 @@ const userApi = {
         return response.data;
       },
       onSuccess: (data) => {
-        // Invalidate and refetch users list and specific user
-        queryClient.invalidateQueries({ queryKey: ['users'] });
-        queryClient.invalidateQueries({ queryKey: ['users', data.id] });
+        // Invalidate all user queries (more efficient than individual invalidations)
+        queryClient.invalidateQueries({ queryKey: queryKeys.users.all });
       },
     });
   },
@@ -69,8 +73,8 @@ const userApi = {
         return response.data;
       },
       onSuccess: () => {
-        // Invalidate and refetch users list
-        queryClient.invalidateQueries({ queryKey: ['users'] });
+        // Invalidate and refetch all user-related queries
+        queryClient.invalidateQueries({ queryKey: queryKeys.users.all });
       },
     });
   },
